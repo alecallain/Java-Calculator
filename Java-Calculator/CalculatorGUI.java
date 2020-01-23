@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
 
@@ -11,6 +12,9 @@ import javax.swing.*;
 public class CalculatorGUI extends JFrame implements ActionListener {
     /** The actual calcualtor object */
     private Calculator calc;
+    
+    /** Area displaying the numbers */
+    private TextArea display;
     
     /** Buttons for numbers and functions */
     private JButton zero;

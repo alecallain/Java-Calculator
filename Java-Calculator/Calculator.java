@@ -8,12 +8,13 @@ import java.util.*;
  * @version 1/20/20
  */
 public class Calculator {
-    
     /**
      * Constructor
      */
     public Calculator() {
-        
+        double first = 0;
+        double second = 0;
+        double result = 0;
     }
     
     public double add(double x, double y) {
@@ -40,7 +41,27 @@ public class Calculator {
         return result;
     }
     
-    public static void main (Stirng [] args) {
-        
+    public static void main (String [] args) {
+        Calculator ca = new Calculator();
+        Scanner input = new Scanner(System.in);
+        String exp = new String();
+        double first = 0;
+        double second = 0;
+        double result = 0;
+        System.out.println("Welcome to my Java Calculator");
+        while (exp != "exit") {
+            System.out.println("Please enter your addition (+), subtraction (-), multiplication (*) or division (/) mathmatical expression");
+            exp = input.nextLine();  
+            if (exp.contains("+")) {
+                result = ca.add(first, second);
+            } else if (exp.contains("-")) {
+                result = ca.subtract(first, second);
+            } else if (exp.contains("*")) {
+                result = ca.multiply(first, second);
+            } else if (exp.contains("/")) {
+                result = ca.divide(first, second);
+            }
+            System.out.println("The result your expression is " + result);
+        }
     }
 }
