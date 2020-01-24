@@ -1,6 +1,5 @@
 import javax.swing.*;
 import java.util.*;
-
 /**
  * This class simulates a basic calculator.
  * 
@@ -49,19 +48,32 @@ public class Calculator {
         double second = 0;
         double result = 0;
         System.out.println("Welcome to my Java Calculator");
-        while (exp != "exit") {
-            System.out.println("Please enter your addition (+), subtraction (-), multiplication (*) or division (/) mathmatical expression");
-            exp = input.nextLine();  
-            if (exp.contains("+")) {
-                result = ca.add(first, second);
-            } else if (exp.contains("-")) {
-                result = ca.subtract(first, second);
-            } else if (exp.contains("*")) {
-                result = ca.multiply(first, second);
-            } else if (exp.contains("/")) {
-                result = ca.divide(first, second);
+        for (;;) {
+            System.out.println("Please enter the first number or type 'exit' to leave the application");
+            exp = input.nextLine();
+            if (exp.contains("exit")) {
+                break;
             }
-            System.out.println("The result your expression is " + result);
+            first = Double.parseDouble(exp);
+            System.out.println("Please enter the second number");
+            exp = input.nextLine();
+            second = Double.parseDouble(exp);
+            System.out.println("Now please enter the mathematical expression you would like to use: Addition (+ or add), Subtraction (- or subtract), Multiplication (* or multiply), or Division (/ or divide)");
+            exp = input.nextLine();
+            if (exp.contains("+") || exp.contains("add")) {
+                result = ca.add(first, second);
+                System.out.println("The result of " + first + " + " + second + " is " + result);
+            } else if (exp.contains("-") || exp.contains("subtract")) {
+                result = ca.subtract(first, second);
+                System.out.println("The result of " + first + " - " + second + " is " + result);
+            } else if (exp.contains("*") || exp.contains("multiply")) {
+                result = ca.multiply(first, second);
+                System.out.println("The result of " + first + " * " + second + " is " + result);
+            } else if (exp.contains("/") || exp.contains("divide")) {
+                result = ca.divide(first, second);
+                System.out.println("The result of " + first + " / " + second + " is " + result);
+            }
         }
+        System.out.println("Goodbye!");
     }
 }
