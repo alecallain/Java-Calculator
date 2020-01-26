@@ -24,19 +24,19 @@ public class Calculator {
     
     public double subtract(double x, double y) {
         double result = 0;
-        result = x + y;
+        result = x - y;
         return result;
     }
     
     public double multiply(double x, double y) {
         double result = 0;
-        result = x + y;
+        result = x * y;
         return result;
     }
     
     public double divide(double x, double y) {
         double result = 0;
-        result = x + y;
+        result = x / y;
         return result;
     }
     
@@ -75,5 +75,6 @@ public class Calculator {
             }
         }
         System.out.println("Goodbye!");
+        System.exit(1);
     }
 }

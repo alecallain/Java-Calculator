@@ -1,8 +1,11 @@
 #BlueJ class context
 comment0.params=
 comment0.target=CalculatorGUI()
+comment0.text=\n\ Constructor\n
 comment1.params=e
 comment1.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment1.text=\n\ Section\ dedicated\ to\ responding\ to\ specific\ item\ selections\n\ \n\ @param\ e\ action\ event\ triggered\ by\ user\n
 comment2.params=args
 comment2.target=void\ main(java.lang.String[])
+comment2.text=\n\ Main\ method\n
 numComments=3

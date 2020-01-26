@@ -36,14 +36,44 @@ public class CalculatorGUI extends JFrame implements ActionListener {
     private JButton percent;
     private JButton period;
     
-    public CalculatorGUI() {
-        calc = new Calculator();
-    }
+    /** Menu items for GUI */
+    private JMenuBar menu;
+    private JMenu fileMenu;
+    private JMenuItem quitItem;
     
-    public void actionPerformed (ActionEvent e) {
+    /**
+     * Constructor
+     */
+    public CalculatorGUI() {
+        // calculator object for implementing mathatical expressions
+        calc = new Calculator();
+        // adds grid layout to GUI
+        setLayout(new GridBagLayout());
+        GridBagConstraints position = new GridBagConstraints();
+        
+        // creates text display area
+        
+        display = new TextArea();
+        
+        // creates buttons
+        
         
     }
     
+    /**
+     * Section dedicated to responding to specific item selections
+     * 
+     * @param e action event triggered by user
+     */
+    public void actionPerformed (ActionEvent e) {
+        if (e.getSource() == quitItem) {
+            System.exit(1);
+        }
+    }
+    
+    /**
+     * Main method
+     */
     public static void main(String [] args) {
         CalculatorGUI gui = new CalculatorGUI();
         gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
