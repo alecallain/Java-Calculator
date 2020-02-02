@@ -15,6 +15,7 @@ public class CalculatorGUI extends JFrame implements ActionListener {
     
     /** Area displaying the numbers */
     private TextArea display;
+    private JPanel panel;
     
     /** Buttons for numbers and functions */
     private JButton zero;
@@ -61,12 +62,21 @@ public class CalculatorGUI extends JFrame implements ActionListener {
         setJMenuBar(menu);
         
         // creates text display area
-        display = new TextArea();
+        //panel = new JPanel();
+        display = new TextArea(5,45);
         add(display);
+        //add(panel, "North");
+        
         
         // creates buttons
         zero = new JButton("0");
+        
         one = new JButton("1");
+        position.gridx = 0;
+        position.gridy = 1;
+        position.gridwidth = 1;
+        add(one, position);
+        
         two = new JButton("2");
         three = new JButton("3");
         four = new JButton("4");
@@ -86,7 +96,6 @@ public class CalculatorGUI extends JFrame implements ActionListener {
         
         // adds action listener to buttons and menu items
         quitItem.addActionListener(this);
-        
         zero.addActionListener(this);
         one.addActionListener(this);
         two.addActionListener(this);
@@ -117,49 +126,49 @@ public class CalculatorGUI extends JFrame implements ActionListener {
             System.exit(1);
         }
         if (e.getSource() == zero) {
-            
+            display.append("0");
         }
         if (e.getSource() == one) {
-            
+            display.append("1");
         }
         if (e.getSource() == two) {
-            
+            display.append("2");
         }
         if (e.getSource() == three) {
-            
+            display.append("3");
         }
         if (e.getSource() == four) {
-            
+            display.append("4");
         }
         if (e.getSource() == five) {
-            
+            display.append("5");
         }
         if (e.getSource() == six) {
-            
+            display.append("6");
         }
         if (e.getSource() == seven) {
-            
+            display.append("7");
         }
         if (e.getSource() == eight) {
-            
+            display.append("8");
         }
         if (e.getSource() == nine) {
-            
+            display.append("9");
         }
         if (e.getSource() == add) {
-            
+            display.append("+");
         }
         if (e.getSource() == sub) {
-            
+            display.append("-");
         }
         if (e.getSource() == mul) {
-            
+            display.append("*");
         }
         if (e.getSource() == div) {
-            
+            display.append("/");
         }
         if (e.getSource() == clear) {
-            
+            display.append("0");
         }
         if (e.getSource() == sqrt) {
             
@@ -168,7 +177,7 @@ public class CalculatorGUI extends JFrame implements ActionListener {
             
         }
         if (e.getSource() == period) {
-            
+            display.append(".");
         }
     }
     

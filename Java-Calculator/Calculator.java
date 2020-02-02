@@ -58,7 +58,7 @@ public class Calculator {
             System.out.println("Please enter the second number");
             exp = input.nextLine();
             second = Double.parseDouble(exp);
-            System.out.println("Now please enter the mathematical expression you would like to use: Addition (+ or add), Subtraction (- or subtract), Multiplication (* or multiply), or Division (/ or divide)");
+            System.out.println("Now please enter the mathematical expression you would like to use: \nAddition (+ or add), Subtraction (- or subtract), \nMultiplication (* or multiply), or Division (/ or divide)");
             exp = input.nextLine();
             if (exp.contains("+") || exp.contains("add")) {
                 result = ca.add(first, second);
