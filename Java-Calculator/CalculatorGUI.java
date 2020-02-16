@@ -15,7 +15,7 @@ public class CalculatorGUI extends JFrame implements ActionListener {
     
     /** Area displaying the numbers */
     private TextArea display;
-    private JPanel panel;
+    private Panel panel;
     
     /** Buttons for numbers and functions */
     private JButton zero;
@@ -36,6 +36,7 @@ public class CalculatorGUI extends JFrame implements ActionListener {
     private JButton sqrt;
     private JButton percent;
     private JButton period;
+    private JButton equals;
     
     /** Menu items for GUI */
     private JMenuBar menu;
@@ -48,9 +49,6 @@ public class CalculatorGUI extends JFrame implements ActionListener {
     public CalculatorGUI() {
         // calculator object for implementing mathatical expressions
         calc = new Calculator();
-        // adds grid layout to GUI
-        setLayout(new GridBagLayout());
-        GridBagConstraints position = new GridBagConstraints();
         
         // creates taskbar items 
         menu = new JMenuBar();
@@ -61,38 +59,132 @@ public class CalculatorGUI extends JFrame implements ActionListener {
         menu.add(fileMenu);
         setJMenuBar(menu);
         
-        // creates text display area
-        //panel = new JPanel();
+        // creates display area
+        panel = new Panel();
         display = new TextArea(5,45);
-        add(display);
-        //add(panel, "North");
+        
+        // adds grid layout to GUI
+        panel.setLayout(new GridBagLayout());
+        GridBagConstraints position = new GridBagConstraints();
+        
+        add(display, "North");
+        add(panel, "Center");
         
         
         // creates buttons
-        zero = new JButton("0");
-        
         one = new JButton("1");
         position.gridx = 0;
         position.gridy = 1;
         position.gridwidth = 1;
-        add(one, position);
+        panel.add(one, position);
         
         two = new JButton("2");
+        position.gridx = 1;
+        position.gridy = 1;
+        position.gridwidth = 1;
+        panel.add(two, position);
+        
         three = new JButton("3");
+        position.gridx = 2;
+        position.gridy = 1;
+        position.gridwidth = 1;
+        panel.add(three, position);
+        
         four = new JButton("4");
+        position.gridx = 0;
+        position.gridy = 2;
+        position.gridwidth = 1;
+        panel.add(four, position);
+        
         five = new JButton("5");
+        position.gridx = 1;
+        position.gridy = 2;
+        position.gridwidth = 1;
+        panel.add(five, position);
+        
         six = new JButton("6");
+        position.gridx = 2;
+        position.gridy = 2;
+        position.gridwidth = 1;
+        panel.add(six, position);
+        
         seven = new JButton("7");
+        position.gridx = 0;
+        position.gridy = 3;
+        position.gridwidth = 1;
+        panel.add(seven, position);
+        
         eight = new JButton("8");
+        position.gridx = 1;
+        position.gridy = 3;
+        position.gridwidth = 1;
+        panel.add(eight, position);
+        
         nine = new JButton("9");
+        position.gridx = 2;
+        position.gridy = 3;
+        position.gridwidth = 1;
+        panel.add(nine, position);
+        
+        zero = new JButton("0");
+        position.gridx = 1;
+        position.gridy = 4;
+        position.gridwidth = 1;
+        panel.add(zero, position);
+        
         add = new JButton("+");
+        position.gridx = 3;
+        position.gridy = 1;
+        position.gridwidth = 1;
+        panel.add(add, position);
+        
         sub = new JButton("-");
+        position.gridx = 3;
+        position.gridy = 2;
+        position.gridwidth = 1;
+        panel.add(sub, position);
+        
         mul = new JButton("x");
+        position.gridx = 3;
+        position.gridy = 3;
+        position.gridwidth = 1;
+        panel.add(mul, position);
+        
         div = new JButton("/");
+        position.gridx = 3;
+        position.gridy = 4;
+        position.gridwidth = 1;
+        panel.add(div, position);
+        
         clear = new JButton("c");
+        position.gridx = 0;
+        position.gridy = 4;
+        position.gridwidth = 1;
+        panel.add(clear, position);
+        
         sqrt = new JButton("sqrt");
+        position.gridx = 1;
+        position.gridy = 5;
+        position.gridwidth = 1;
+        panel.add(sqrt, position);
+        
         percent = new JButton("%");
+        position.gridx = 2;
+        position.gridy = 5;
+        position.gridwidth = 1;
+        panel.add(percent, position);
+        
         period = new JButton(".");
+        position.gridx = 2;
+        position.gridy = 4;
+        position.gridwidth = 1;
+        panel.add(period, position);
+        
+        equals = new JButton("=");
+        position.gridx = 3;
+        position.gridy = 5;
+        position.gridwidth = 1;
+        panel.add(equals, position);
         
         // adds action listener to buttons and menu items
         quitItem.addActionListener(this);
