@@ -168,11 +168,11 @@ public class CalculatorGUI extends JFrame implements ActionListener {
         position.gridwidth = 1;
         panel.add(sqrt, position);
         
-        percent = new JButton("%");
-        position.gridx = 2;
-        position.gridy = 5;
-        position.gridwidth = 1;
-        panel.add(percent, position);
+        //percent = new JButton("%");
+        //position.gridx = 2;
+        //position.gridy = 5;
+        //position.gridwidth = 1;
+        //panel.add(percent, position);
         
         period = new JButton(".");
         position.gridx = 2;
@@ -204,8 +204,9 @@ public class CalculatorGUI extends JFrame implements ActionListener {
         div.addActionListener(this);
         clear.addActionListener(this);
         sqrt.addActionListener(this);
-        percent.addActionListener(this);
+        //percent.addActionListener(this);
         period.addActionListener(this);
+        equals.addActionListener(this);
     }
     
     /**
@@ -214,6 +215,9 @@ public class CalculatorGUI extends JFrame implements ActionListener {
      * @param e action event triggered by user
      */
     public void actionPerformed (ActionEvent e) {
+        double temp = 0;
+        String stringTemp = "";
+        
         if (e.getSource() == quitItem) {
             System.exit(1);
         }
@@ -248,28 +252,35 @@ public class CalculatorGUI extends JFrame implements ActionListener {
             display.append("9");
         }
         if (e.getSource() == add) {
-            display.append("+");
+            display.append(" + ");
         }
         if (e.getSource() == sub) {
-            display.append("-");
+            display.append(" - ");
         }
         if (e.getSource() == mul) {
-            display.append("*");
+            display.append(" * ");
         }
         if (e.getSource() == div) {
-            display.append("/");
+            display.append(" / ");
         }
         if (e.getSource() == clear) {
-            display.append("0");
+            display.setText("");
+            //display.append("0");
         }
         if (e.getSource() == sqrt) {
-            
+            temp = Double.parseDouble(display.getText());
+            temp = Math.sqrt(temp);
+            stringTemp = Double.toString(temp);
+            display.setText(stringTemp);
         }
-        if (e.getSource() == percent) {
-            
-        }
+        //if (e.getSource() == percent) {
+        //    
+        //}
         if (e.getSource() == period) {
             display.append(".");
+        }
+        if (e.getSource() == equals) {
+            stringTemp = display.getText();
         }
     }
     
