@@ -217,6 +217,8 @@ public class CalculatorGUI extends JFrame implements ActionListener {
     public void actionPerformed (ActionEvent e) {
         double temp = 0;
         String stringTemp = "";
+        //String[] parNums;
+        //double[] numb;
         
         if (e.getSource() == quitItem) {
             System.exit(1);
@@ -281,6 +283,31 @@ public class CalculatorGUI extends JFrame implements ActionListener {
         }
         if (e.getSource() == equals) {
             stringTemp = display.getText();
+            String[] parNums = stringTemp.split(" ");
+            double[] numb = new double[parNums.length];
+            for (int i = 0; i < parNums.length; i++) {
+                numb[i] = Double.parseDouble(parNums[i]);
+            }
+            
+            for (int i = 0; i < stringTemp.length(); i++) {
+                if (stringTemp.charAt(i) == '+') {
+                    stringTemp = Double.toString(calc.add(numb[0], numb[1]));
+                    display.setText(stringTemp);
+                    break;
+                } else if (stringTemp.charAt(i) == '-') {
+                    stringTemp = Double.toString(calc.subtract(numb[0], numb[1]));
+                    display.setText(stringTemp);
+                    break;
+                } else if (stringTemp.charAt(i) == '*') {
+                    stringTemp = Double.toString(calc.multiply(numb[0], numb[1]));
+                    display.setText(stringTemp);
+                    break;
+                } else if (stringTemp.charAt(i) == '/') {
+                    stringTemp = Double.toString(calc.divide(numb[0], numb[1]));
+                    display.setText(stringTemp);
+                    break;
+                }
+            }
         }
     }
     
